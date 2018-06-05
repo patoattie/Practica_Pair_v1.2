@@ -76,3 +76,44 @@
 
 1528063583 f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\parser.h
 
+1528229487 source:c:\test\pattie\practica_pair_v1.2\windows_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+
+1527889617 c:\test\pattie\practica_pair_v1.2\windows_32\arraylist.h
+
+1528238488 c:\test\pattie\practica_pair_v1.2\windows_32\employee.h
+
+1528229487 c:\test\pattie\practica_pair_v1.2\windows_32\parser.h
+
+1528235015 source:c:\test\pattie\practica_pair_v1.2\windows_32\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+	"../../Programacion-I/pattie/Funciones/funciones.h"
+
+1528235364 source:c:\test\pattie\practica_pair_v1.2\windows_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+
+1526584307 source:c:\test\pattie\programacion-i\pattie\funciones\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
+1526584307 c:\test\pattie\programacion-i\pattie\funciones\funciones.h
+

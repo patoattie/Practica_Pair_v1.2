@@ -34,6 +34,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../../Programacion-I/pattie/Funciones/funciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../Programacion-I/pattie/Funciones/funciones.h" />
 		<Unit filename="ArrayList.h" />
 		<Unit filename="Employee.c">
 			<Option compilerVar="CC" />

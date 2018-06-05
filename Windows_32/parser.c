@@ -7,8 +7,8 @@
 
 #define MASACARA_ARCHIVO_EMPLEADOS "%[^,],%[^,],%[^,],%[^\n]\n"
 #define CANTIDAD_CAMPOS_ARCHIVO_EMPLEADOS 4
-#define CANTIDAD_FILAS_ARCHIVO_EMPLEADOS 1000
 #define TIENE_ENCABEZADO_ARCHIVO_EMPLEADOS 1
+#define CANTIDAD_FILAS_ARCHIVO_EMPLEADOS 1000
 
 int parserEmployee(FILE* pFile, ArrayList* pArrayListEmployee)
 {

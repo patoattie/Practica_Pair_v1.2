@@ -7,9 +7,6 @@
 
 #define NOMBRE_ARCHIVO_EMPLEADOS "data.csv"
 
-int cargarDesdeArchivo(const char*, ArrayList*);
-int listarEmpleados(ArrayList*);
-int agregarEmpleado(ArrayList*);
 
 /****************************************************
     Menu:
@@ -29,6 +26,9 @@ int main()
     char seguir = 's';
     int opcion;
     int listaEmpleados;
+    int cargaEmpleado;
+    int ordenaLista;
+    int cantidadElementosLista;
 
     if(arrayEmpleados != NULL)
     {
@@ -49,7 +49,7 @@ int main()
             switch(opcion)
             {
             case 1:
-                parseoEmpleados = cargarDesdeArchivo(NOMBRE_ARCHIVO_EMPLEADOS, arrayEmpleados);
+                parseoEmpleados = employee_cargarDesdeArchivo(NOMBRE_ARCHIVO_EMPLEADOS, arrayEmpleados);
                 if(parseoEmpleados == 1)
                 {
                     printf("Parse del archivo OK\n");
@@ -61,7 +61,7 @@ int main()
                 break;
 
             case 2:
-                listaEmpleados = listarEmpleados(arrayEmpleados);
+                listaEmpleados = employee_listar(arrayEmpleados);
                 if(listaEmpleados < 1)
                 {
                     printf("No hay Empleados cargados\n");
@@ -69,8 +69,34 @@ int main()
                 break;
 
             case 3:
+                cantidadElementosLista = al_len(arrayEmpleados);
+                if(cantidadElementosLista > 0)
+                {
+                    ordenaLista = al_sort(arrayEmpleados, employee_compare, 1);
+                    if(ordenaLista == 0)
+                    {
+                        printf("Ordenamiento OK\n");
+                    }
+                    else
+                    {
+                        printf("ERROR en ordenamiento\n");
+                    }
+                }
+                else
+                {
+                    printf("No hay Empleados cargados\n");
+                }
                 break;
             case 4:
+                cargaEmpleado = employee_agregar(arrayEmpleados);
+                if(cargaEmpleado == 1)
+                {
+                    printf("Alta de Empleado OK\n");
+                }
+                else
+                {
+                    printf("Error al cargar empleado\n");
+                }
                 break;
             case 5:
                 break;
@@ -97,45 +123,4 @@ int main()
     }
 
     return 0;
-}
-
-int cargarDesdeArchivo(const char* nombreArchivo, ArrayList* arrayEmpleados)
-{
-    FILE* archivoEmpleados;
-    int retorno = 0;
-    int parseoArchivo;
-    int cerroArchivo;
-
-    archivoEmpleados = fopen(nombreArchivo, "r");
-    if(archivoEmpleados != NULL)
-    {
-        parseoArchivo = parserEmployee(archivoEmpleados, arrayEmpleados);
-        cerroArchivo = fclose(archivoEmpleados);
-
-        if(parseoArchivo == 1 && cerroArchivo == 0)
-        {
-            retorno = 1;
-        }
-    }
-
-    return retorno;
-}
-
-int listarEmpleados(ArrayList* arrayEmpleados)
-{
-    int i;
-    int retorno = 0;
-    Employee* unEmpleado = NULL;
-
-    for(i = 0; i < al_len(arrayEmpleados); i++)
-    {
-        unEmpleado = (Employee*)al_get(arrayEmpleados, i);
-        if(unEmpleado != NULL)
-        {
-            employee_print(unEmpleado);
-            retorno = 1;
-        }
-    }
-
-    return retorno;
 }
