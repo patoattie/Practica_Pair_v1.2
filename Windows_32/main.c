@@ -29,6 +29,7 @@ int main()
     int cargaEmpleado;
     int ordenaLista;
     int cantidadElementosLista;
+    int borraEmpleado;
 
     if(arrayEmpleados != NULL)
     {
@@ -99,6 +100,23 @@ int main()
                 }
                 break;
             case 5:
+                listaEmpleados = employee_listar(arrayEmpleados);
+                if(listaEmpleados < 1)
+                {
+                    printf("No hay Empleados cargados\n");
+                }
+                else
+                {
+                    borraEmpleado = employee_borrar(arrayEmpleados);
+                    if(borraEmpleado == 1)
+                    {
+                        printf("Baja de Empleado OK\n");
+                    }
+                    else
+                    {
+                        printf("Error al borrar empleado\n");
+                    }
+                }
                 break;
             case 6:
                 break;

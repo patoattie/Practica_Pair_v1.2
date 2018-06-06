@@ -117,3 +117,44 @@
 
 1526584307 c:\test\pattie\programacion-i\pattie\funciones\funciones.h
 
+1527547877 source:c:\users\pattie\documents\utn\programacion-i\pattie\funciones\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
+1527547877 c:\users\pattie\documents\utn\programacion-i\pattie\funciones\funciones.h
+
+1528302643 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+
+1528239530 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\arraylist.h
+
+1528239530 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\employee.h
+
+1528239530 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\parser.h
+
+1528239530 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+
+1528302543 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+	"../../Programacion-I/pattie/Funciones/funciones.h"
+

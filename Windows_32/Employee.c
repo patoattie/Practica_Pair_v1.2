@@ -310,13 +310,14 @@ int employee_borrar(ArrayList* arrayEmpleados)
     int borroDato;
     int indice;
     int noHayDatos;
+    Employee* unEmpleado = NULL;
 
     retorno = 0;
 
     noHayDatos = al_isEmpty(arrayEmpleados);
     if(noHayDatos == 0)
     {
-        idParaBorrar = pedirEnteroSinValidar("Ingrese ID de Empleado a borrar: ");
+        idParaBorrar = pedirEnteroSinValidar("\nIngrese ID de Empleado a borrar: ");
         if(idParaBorrar <= 0)
         {
             printf("El dato debe ser un numero positivo, por favor reingrese\n");
@@ -334,6 +335,8 @@ int employee_borrar(ArrayList* arrayEmpleados)
             }
             else
             {
+                unEmpleado = (Employee*)al_get(arrayEmpleados, indice);
+
                 do
                 {
                     printf("Se va a borrar el Empleado:\n");
@@ -347,7 +350,7 @@ int employee_borrar(ArrayList* arrayEmpleados)
                     }
                 } while(toupper(confirma) != 'S' && toupper(confirma) != 'N');
 
-                if(confirma == 'S')
+                if(toupper(confirma) == 'S')
                 {
                     borroDato = al_remove(arrayEmpleados, indice);
                     if(borroDato < 0)
