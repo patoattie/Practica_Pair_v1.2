@@ -29,7 +29,7 @@ int main()
     int listaEmpleados;
     int cargaEmpleado;
     int ordenaLista;
-    int cantidadElementosLista;
+    int arrayEstaVacio;
     int borraEmpleado;
     int indiceDesde;
     int indiceHasta;
@@ -65,7 +65,7 @@ int main()
                 break;
 
             case 2:
-                listaEmpleados = employee_listar(arrayEmpleados, -1, -1);
+                listaEmpleados = employee_listar(arrayEmpleados);
                 if(listaEmpleados < 1)
                 {
                     printf("No hay Empleados cargados\n");
@@ -73,8 +73,8 @@ int main()
                 break;
 
             case 3:
-                cantidadElementosLista = al_len(arrayEmpleados);
-                if(cantidadElementosLista > 0)
+                arrayEstaVacio = al_isEmpty(arrayEmpleados);
+                if(arrayEstaVacio == 0)
                 {
                     ordenaLista = al_sort(arrayEmpleados, employee_compare, 1);
                     if(ordenaLista == 0)
@@ -105,7 +105,7 @@ int main()
                 break;
 
             case 5:
-                listaEmpleados = employee_listar(arrayEmpleados, -1, -1);
+                listaEmpleados = employee_listar(arrayEmpleados);
                 if(listaEmpleados < 1)
                 {
                     printf("No hay Empleados cargados\n");
@@ -125,35 +125,43 @@ int main()
                 break;
 
             case 6:
-                do
+                arrayEstaVacio = al_isEmpty(arrayEmpleados);
+                if(arrayEstaVacio == 0)
                 {
-                    indiceDesde = pedirEnteroSinValidar("Ingrese indice desde el cual listar Empleados: ");
-                    if(indiceDesde < 0)
+                    do
                     {
-                        printf("El indice desde el cual listar no puede ser negativo\n");
-                    }
-                } while(indiceDesde < 0);
+                        indiceDesde = pedirEnteroSinValidar("Ingrese indice desde el cual listar Empleados: ");
+                        if(indiceDesde < 0)
+                        {
+                            printf("El indice desde el cual listar no puede ser negativo\n");
+                        }
+                    } while(indiceDesde < 0);
 
-                do
-                {
-                    indiceHasta = pedirEnteroSinValidar("Ingrese indice hasta el cual listar Empleados: ");
-                    if(indiceHasta < 0)
+                    do
                     {
-                        printf("El indice hasta el cual listar no puede ser negativo\n");
-                    }
-                } while(indiceHasta < 0);
+                        indiceHasta = pedirEnteroSinValidar("Ingrese indice hasta el cual listar Empleados: ");
+                        if(indiceHasta < 0)
+                        {
+                            printf("El indice hasta el cual listar no puede ser negativo\n");
+                        }
+                    } while(indiceHasta < 0);
 
-                if(indiceDesde <= indiceHasta)
-                {
-                    listaEmpleados = employee_listar(arrayEmpleados, indiceDesde, indiceHasta);
-                    if(listaEmpleados < 1)
+                    if(indiceDesde <= indiceHasta)
                     {
-                        printf("No hay Empleados cargados\n");
+                        listaEmpleados = employee_subConjunto(arrayEmpleados, indiceDesde, indiceHasta);
+                        if(listaEmpleados < 1)
+                        {
+                            printf("No hay Empleados cargados\n");
+                        }
+                    }
+                    else
+                    {
+                        printf("El indice desde no puede ser mayor al indice hasta\n");
                     }
                 }
                 else
                 {
-                    printf("El indice desde no puede ser mayor al indice hasta\n");
+                    printf("No hay Empleados cargados\n");
                 }
                 break;
 

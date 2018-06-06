@@ -141,12 +141,12 @@ int employee_cargarDesdeArchivo(const char* nombreArchivo, ArrayList* arrayEmple
     int retorno = 0;
     int parseoArchivo;
     int cerroArchivo;
-    int cantidadElementosArray = al_len(arrayEmpleados);
+    int arrayEstaVacio = al_isEmpty(arrayEmpleados);
     char continua;
     int limpiaArray;
     int confirmaParseo = 1;
 
-    if(cantidadElementosArray > 0)
+    if(arrayEstaVacio == 0)
     {
         do
         {
@@ -174,7 +174,7 @@ int employee_cargarDesdeArchivo(const char* nombreArchivo, ArrayList* arrayEmple
             confirmaParseo = 0; //Cancelado por el usuario
         }
     }
-    else if(cantidadElementosArray < 0)
+    else if(arrayEstaVacio < 0)
     {
         printf("Array list apunta a NULL\n");
         confirmaParseo = 0; //Cancelado por el usuario
@@ -198,39 +198,19 @@ int employee_cargarDesdeArchivo(const char* nombreArchivo, ArrayList* arrayEmple
     return retorno;
 }
 
-int employee_listar(ArrayList* arrayEmpleados, int indiceDesde, int indiceHasta)
+int employee_listar(ArrayList* arrayEmpleados)
 {
     int i;
     int retorno = 0;
     Employee* unEmpleado = NULL;
-    int huboError = 0;
 
-    if(indiceDesde < 0 && indiceHasta < 0)
+    for(i = 0; i < al_len(arrayEmpleados); i++)
     {
-        indiceDesde = 0;
-        indiceHasta = al_len(arrayEmpleados) - 1;
-    }
-    else if(indiceDesde < 0 || indiceHasta < 0)
-    {
-        printf("ERROR. No se admite un parametro negativo en la funcion listar Empleados");
-        huboError = 1;
-    }
-    else if(indiceDesde > indiceHasta)
-    {
-        printf("ERROR. En la funcion listar Empleados el parametro Desde es mayor al parametro Hasta");
-        huboError = 1;
-    }
-
-    if(huboError == 0)
-    {
-        for(i = indiceDesde; i <= indiceHasta; i++)
+        unEmpleado = (Employee*)al_get(arrayEmpleados, i);
+        if(unEmpleado != NULL)
         {
-            unEmpleado = (Employee*)al_get(arrayEmpleados, i);
-            if(unEmpleado != NULL)
-            {
-                employee_print(unEmpleado);
-                retorno = 1;
-            }
+            employee_print(unEmpleado);
+            retorno = 1;
         }
     }
 
@@ -413,6 +393,43 @@ int employee_getIndexPorId(ArrayList* arrayEmpleados, int id)
         {
             retorno = i;
             break; //Corto el for
+        }
+    }
+
+    return retorno;
+}
+
+int employee_subConjunto(ArrayList* arrayEmpleados, int indiceDesde, int indiceHasta)
+{
+    int i;
+    int retorno = 0;
+    ArrayList* arrayTemporal = al_newArrayList();
+    Employee* unEmpleado = NULL;
+    int huboError = 0;
+
+    if(indiceDesde < 0 || indiceHasta < 0)
+    {
+        printf("ERROR. No se admite un parametro negativo en la funcion listar subconjunto Empleados");
+        huboError = 1;
+    }
+    else if(indiceDesde > indiceHasta)
+    {
+        printf("ERROR. En la funcion listar subconjunto Empleados el parametro Desde es mayor al parametro Hasta");
+        huboError = 1;
+    }
+
+    if(huboError == 0)
+    {
+        arrayTemporal = al_subList(arrayEmpleados, indiceDesde, indiceHasta);
+
+        for(i = 0; i < al_len(arrayTemporal); i++)
+        {
+            unEmpleado = (Employee*)al_get(arrayTemporal, i);
+            if(unEmpleado != NULL)
+            {
+                employee_print(unEmpleado);
+                retorno = 1;
+            }
         }
     }
 
