@@ -198,19 +198,39 @@ int employee_cargarDesdeArchivo(const char* nombreArchivo, ArrayList* arrayEmple
     return retorno;
 }
 
-int employee_listar(ArrayList* arrayEmpleados)
+int employee_listar(ArrayList* arrayEmpleados, int indiceDesde, int indiceHasta)
 {
     int i;
     int retorno = 0;
     Employee* unEmpleado = NULL;
+    int huboError = 0;
 
-    for(i = 0; i < al_len(arrayEmpleados); i++)
+    if(indiceDesde < 0 && indiceHasta < 0)
     {
-        unEmpleado = (Employee*)al_get(arrayEmpleados, i);
-        if(unEmpleado != NULL)
+        indiceDesde = 0;
+        indiceHasta = al_len(arrayEmpleados) - 1;
+    }
+    else if(indiceDesde < 0 || indiceHasta < 0)
+    {
+        printf("ERROR. No se admite un parametro negativo en la funcion listar Empleados");
+        huboError = 1;
+    }
+    else if(indiceDesde > indiceHasta)
+    {
+        printf("ERROR. En la funcion listar Empleados el parametro Desde es mayor al parametro Hasta");
+        huboError = 1;
+    }
+
+    if(huboError == 0)
+    {
+        for(i = indiceDesde; i <= indiceHasta; i++)
         {
-            employee_print(unEmpleado);
-            retorno = 1;
+            unEmpleado = (Employee*)al_get(arrayEmpleados, i);
+            if(unEmpleado != NULL)
+            {
+                employee_print(unEmpleado);
+                retorno = 1;
+            }
         }
     }
 

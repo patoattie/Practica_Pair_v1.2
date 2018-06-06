@@ -65,6 +65,7 @@ int parserEmployee(FILE* pFile, ArrayList* pArrayListEmployee)
                     }
 
                     agregoEmpleado = al_add(pArrayListEmployee, unEmpleado);
+                    //printf("%d\n", al_indexOf(pArrayListEmployee, unEmpleado));
                     if(agregoEmpleado < 0) //Hubo error
                     {
                         break;

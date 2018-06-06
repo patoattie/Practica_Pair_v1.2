@@ -4,6 +4,7 @@
 #include "ArrayList.h"
 #include "Employee.h"
 #include "parser.h"
+#include "../../Programacion-I/pattie/Funciones/funciones.h"
 
 #define NOMBRE_ARCHIVO_EMPLEADOS "data.csv"
 
@@ -30,6 +31,8 @@ int main()
     int ordenaLista;
     int cantidadElementosLista;
     int borraEmpleado;
+    int indiceDesde;
+    int indiceHasta;
 
     if(arrayEmpleados != NULL)
     {
@@ -62,7 +65,7 @@ int main()
                 break;
 
             case 2:
-                listaEmpleados = employee_listar(arrayEmpleados);
+                listaEmpleados = employee_listar(arrayEmpleados, -1, -1);
                 if(listaEmpleados < 1)
                 {
                     printf("No hay Empleados cargados\n");
@@ -88,6 +91,7 @@ int main()
                     printf("No hay Empleados cargados\n");
                 }
                 break;
+
             case 4:
                 cargaEmpleado = employee_agregar(arrayEmpleados);
                 if(cargaEmpleado == 1)
@@ -99,8 +103,9 @@ int main()
                     printf("Error al cargar empleado\n");
                 }
                 break;
+
             case 5:
-                listaEmpleados = employee_listar(arrayEmpleados);
+                listaEmpleados = employee_listar(arrayEmpleados, -1, -1);
                 if(listaEmpleados < 1)
                 {
                     printf("No hay Empleados cargados\n");
@@ -118,8 +123,40 @@ int main()
                     }
                 }
                 break;
+
             case 6:
+                do
+                {
+                    indiceDesde = pedirEnteroSinValidar("Ingrese indice desde el cual listar Empleados: ");
+                    if(indiceDesde < 0)
+                    {
+                        printf("El indice desde el cual listar no puede ser negativo\n");
+                    }
+                } while(indiceDesde < 0);
+
+                do
+                {
+                    indiceHasta = pedirEnteroSinValidar("Ingrese indice hasta el cual listar Empleados: ");
+                    if(indiceHasta < 0)
+                    {
+                        printf("El indice hasta el cual listar no puede ser negativo\n");
+                    }
+                } while(indiceHasta < 0);
+
+                if(indiceDesde <= indiceHasta)
+                {
+                    listaEmpleados = employee_listar(arrayEmpleados, indiceDesde, indiceHasta);
+                    if(listaEmpleados < 1)
+                    {
+                        printf("No hay Empleados cargados\n");
+                    }
+                }
+                else
+                {
+                    printf("El indice desde no puede ser mayor al indice hasta\n");
+                }
                 break;
+
             case 7:
                 seguir = 'n';
                 break;

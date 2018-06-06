@@ -126,17 +126,18 @@
 
 1527547877 c:\users\pattie\documents\utn\programacion-i\pattie\funciones\funciones.h
 
-1528302643 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\main.c
+1528304228 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"ArrayList.h"
 	"Employee.h"
 	"parser.h"
+	"../../Programacion-I/pattie/Funciones/funciones.h"
 
 1528239530 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\arraylist.h
 
-1528239530 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\employee.h
+1528303944 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\employee.h
 
 1528239530 c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\parser.h
 
@@ -148,7 +149,7 @@
 	"Employee.h"
 	"parser.h"
 
-1528302543 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\employee.c
+1528304129 source:c:\users\pattie\documents\utn\practica_pair_v1.2\windows_32\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

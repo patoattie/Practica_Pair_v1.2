@@ -47,7 +47,7 @@ int employee_setIsEmpty(Employee* this, int isEmpty);
 int employee_getIsEmpty(Employee* this);
 
 int employee_cargarDesdeArchivo(const char*, ArrayList*);
-int employee_listar(ArrayList*);
+int employee_listar(ArrayList*, int, int);
 int employee_nuevoId(ArrayList*);
 int employee_agregar(ArrayList*);
 int employee_borrar(ArrayList*);
