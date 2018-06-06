@@ -401,10 +401,8 @@ int employee_getIndexPorId(ArrayList* arrayEmpleados, int id)
 
 int employee_subConjunto(ArrayList* arrayEmpleados, int indiceDesde, int indiceHasta)
 {
-    int i;
     int retorno = 0;
     ArrayList* arrayTemporal = al_newArrayList();
-    Employee* unEmpleado = NULL;
     int huboError = 0;
 
     if(indiceDesde < 0 || indiceHasta < 0)
@@ -421,16 +419,7 @@ int employee_subConjunto(ArrayList* arrayEmpleados, int indiceDesde, int indiceH
     if(huboError == 0)
     {
         arrayTemporal = al_subList(arrayEmpleados, indiceDesde, indiceHasta);
-
-        for(i = 0; i < al_len(arrayTemporal); i++)
-        {
-            unEmpleado = (Employee*)al_get(arrayTemporal, i);
-            if(unEmpleado != NULL)
-            {
-                employee_print(unEmpleado);
-                retorno = 1;
-            }
-        }
+        retorno = employee_listar(arrayTemporal);
     }
 
     return retorno;

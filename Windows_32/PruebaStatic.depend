@@ -56,17 +56,18 @@
 
 1527903413 f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\arraylist.h
 
-1528069793 f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\employee.h
+1528316621 f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\employee.h
 
-1528069067 source:f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\main.c
+1528316621 source:f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"ArrayList.h"
 	"Employee.h"
 	"parser.h"
+	"../../Programacion-I/pattie/Funciones/funciones.h"
 
-1528067203 source:f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\parser.c
+1528316621 source:f:\mis documentos\escritorio\programacion\utn\programacion 1\practica_pair_v1.2\windows_32\parser.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -158,4 +159,13 @@
 	"Employee.h"
 	"parser.h"
 	"../../Programacion-I/pattie/Funciones/funciones.h"
+
+1527350672 source:f:\mis documentos\escritorio\programacion\utn\programacion 1\programacion-i\pattie\funciones\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
+1527350672 f:\mis documentos\escritorio\programacion\utn\programacion 1\programacion-i\pattie\funciones\funciones.h
 
